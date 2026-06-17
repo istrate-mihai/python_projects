@@ -3,23 +3,25 @@ from settings import Settings
 from ship import Ship
 import game_functions as gf
 
+
 def run_game():
-	# Initialize pygame, settings, and screen object.
-	pygame.init()
+    # Initialize pygame, settings, and screen object.
+    pygame.init()
 
-	ai_settings = Settings()
-	screen 		= pygame.display.set_mode(
-		(ai_settings.screen_width, ai_settings.screen_height)
-	)
+    ai_settings = Settings()
+    screen = pygame.display.set_mode(
+        (ai_settings.screen_width, ai_settings.screen_height)
+    )
 
-	# Make a ship
-	ship = Ship(screen)
+    # Make a ship
+    ship = Ship(screen)
 
-	pygame.display.set_caption("Alien Invasion")
+    pygame.display.set_caption("Alien Invasion")
 
-	while True:
+    while True:
 
-		gf.check_events()
-		gf.update_screen(ai_settings, screen, ship)
+        gf.check_events(ship)
+        gf.update_screen(ai_settings, screen, ship)
+
 
 run_game()
